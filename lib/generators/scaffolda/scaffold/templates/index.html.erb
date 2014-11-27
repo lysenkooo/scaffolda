@@ -1,0 +1,20 @@
+<h1><%= plural_table_name.titleize %></h1>
+
+<div>
+  <%%= link_to 'Add <%= human_name %>', new_<%= singular_table_name %>_path, class: 'btn btn-primary' %>
+</div>
+
+<%%= render partial: 'shared/search', locals: { model: <%= singular_table_name.titleize %> } %>
+
+<table id="<%= plural_table_name %>" class="table">
+  <thead>
+    <%%= render 'head' %>
+  </thead>
+  <tbody>
+    <%%= render @<%= plural_table_name %> %>
+  </tbody>
+</table>
+
+<div id="<%= plural_table_name %>_paginator" class="paginator">
+  <%%= paginate @<%= plural_table_name %>, remote: true %>
+</div>

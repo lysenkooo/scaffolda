@@ -1,0 +1,12 @@
+<h1><%= singular_table_name.titleize %> <%%= @<%= singular_table_name %>.id %> <%%= link_to fa_icon('pencil'), edit_<%= singular_table_name %>_path(@<%= singular_table_name %>) %></h1>
+
+<table class="table">
+  <tbody>
+  <%- attributes.each do |attribute| -%>
+    <tr>
+      <td><%= attribute.human_name %></td>
+      <td><%%= @<%= singular_table_name %>.<%= attribute.name %> %></td>
+    </tr>
+  <%- end -%>
+  </tbody>
+</table>

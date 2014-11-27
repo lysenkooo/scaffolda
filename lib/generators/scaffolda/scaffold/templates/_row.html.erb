@@ -1,0 +1,7 @@
+<tr>
+  <%- attributes.each do |attribute| -%>
+  <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+  <%- end -%>
+  <td><%%= link_to fa_icon('search'), <%= singular_table_name %> %></td>
+  <td><%%= link_to fa_icon('pencil'), edit_<%= singular_table_name %>_path(<%= singular_table_name %>) %></td>
+</tr>

@@ -1,0 +1,6 @@
+<tr>
+  <%- attributes.each do |attribute| -%>
+  <th><%%= sortable :<%= attribute.column_name %>, <%= singular_table_name.titleize %> %></th>
+  <%- end -%>
+  <th colspan="2"></th>
+</tr>

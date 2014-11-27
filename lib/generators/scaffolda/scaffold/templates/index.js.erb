@@ -1,0 +1,3 @@
+$('#<%= plural_table_name %> thead').html('<%%= escape_javascript(render 'head') %>');
+$('#<%= plural_table_name %> tbody').html('<%%= escape_javascript(render @<%= plural_table_name %>) %>');
+$('#<%= plural_table_name %>_paginator').html('<%%= escape_javascript(paginate(@<%= plural_table_name %>, remote: true)) %>');

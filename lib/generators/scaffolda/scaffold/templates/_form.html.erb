@@ -1,0 +1,19 @@
+<%%= form_for @<%= singular_table_name %>, role: 'form' do |f| %>
+  <%%= render partial: 'shared/errors', locals: { instance: @<%= singular_table_name %> } %>
+
+  <%- attributes.each do |attribute| -%>
+  <div class="form-group">
+    <div><%%= f.label :<%= attribute.column_name %> %></div>
+    <%- if attribute.reference? -%>
+    <div><%%= f.collection_select :<%= attribute.column_name %>, <%= attribute.name.camelize %>.all, :id, :name, { prompt: true }, { class: 'form-control' } %></div>
+    <%- else -%>
+    <div><%%= f.<%= attribute.field_type %> :<%= attribute.column_name %>, class: 'form-control' %></div>
+    <%- end -%>
+  </div>
+
+  <%- end -%>
+  <div class="actions">
+    <%%= f.submit 'Save', class: 'btn btn-primary' %>
+    <%%= link_to 'Delete', @<%= singular_table_name %>, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger' unless @<%= singular_table_name %>.new_record? %>
+  </div>
+<%% end %>
